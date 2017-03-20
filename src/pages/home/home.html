@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar   hideBackButton="true">
+    <ion-title>
+      Todo App
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logOut()">
+          <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  {{user.fName +" " + user.lName}}
+
+  <ion-grid>
+  <ion-row>
+    <ion-col col-12>
+      <ion-card>
+        <ion-card-header>
+          User details
+        </ion-card-header>
+        <ion-card-content>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>First Name:  {{user.fName}}</ion-col>
+              <ion-col col-6>Last Name:  {{user.lName}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>Email: {{user.email}} </ion-col>
+            </ion-row>
+             <ion-row>
+              <ion-col col-6>Phone: {{user.contact}} </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>This column will take 6 columns</ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

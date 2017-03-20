@@ -1,0 +1,115 @@
+<!--
+  Generated template for the Auth page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Auth</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card *ngIf="!check">
+  
+    <ion-card-header>
+      Login to Your Account
+    </ion-card-header>
+  
+    <ion-card-content>
+      <!-- Add card content here! -->
+      <form [formGroup]="loginForm" (ngSubmit)="login($event)">
+        <ion-list>
+
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="text" autofocus formControlName="email"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3>
+                  <button ion-button full type="submit">Login</button>
+                </ion-col>
+                <ion-col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3>
+                  <button ion-button full icon-right (click)="toggle()">Create Account <ion-icon name="arrow-round-forward"></ion-icon></button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </form>
+    </ion-card-content>
+  
+  </ion-card>
+
+
+  <ion-card  *ngIf="check">
+  
+    <ion-card-header>
+      Create Your Account
+    </ion-card-header>
+  
+    <ion-card-content>
+      <!-- Add card content here! -->
+      <form [formGroup]="createUserForm" (ngSubmit)="signup($event)">
+        <ion-list>
+
+          <ion-item>
+            <ion-label floating>First Name</ion-label>
+            <ion-input type="text" autofocus formControlName="fName"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Last Name</ion-label>
+            <ion-input type="text" formControlName="lName"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Phone Number</ion-label>
+            <ion-input type="number" formControlName="contact"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Re-type Password</ion-label>
+            <ion-input type="password" formControlName="password1"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3>
+                  <button ion-button full type="submit">Create Account</button>
+                </ion-col>
+                <ion-col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3>
+                  <button ion-button full icon-right (click)="toggle()">login <ion-icon name="arrow-round-forward"></ion-icon></button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </form>
+    </ion-card-content>
+  
+  </ion-card>
+</ion-content>
