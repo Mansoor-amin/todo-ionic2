@@ -9,6 +9,8 @@ import { User } from './../providers/user';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
+import { UserPage } from '../pages/user/user';
+import { ModalPage } from '../pages/modal/modal';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDEJiMIxFc_sTeXJa3uu0XQ58ekWELckSI",
@@ -22,7 +24,9 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    AuthPage
+    AuthPage,
+    UserPage,
+    ModalPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -32,7 +36,9 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    AuthPage
+    AuthPage,
+    UserPage,
+    ModalPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Auth,Todo,User]
 })

@@ -1,46 +1,100 @@
 <ion-header>
   <ion-navbar   hideBackButton="true">
     <ion-title>
-      Todo App
+      welcome {{user.fName}}
     </ion-title>
     <ion-buttons end>
+       <button ion-button icon-only (click)="navigateToProfile()">
+          <ion-icon name="person"></ion-icon>
+      </button>
       <button ion-button icon-only (click)="logOut()">
           <ion-icon name="log-out"></ion-icon>
       </button>
+      
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  {{user.fName +" " + user.lName}}
 
-  <ion-grid>
-  <ion-row>
-    <ion-col col-12>
-      <ion-card>
-        <ion-card-header>
-          User details
-        </ion-card-header>
-        <ion-card-content>
+ <ion-card>
+  
+    <ion-card-header color="yellow">
+      Add todo
+    </ion-card-header>
+  
+    <ion-card-content>
+      <!-- Add card content here! -->
+      <form  [formGroup]="todoForm"  (ngSubmit)="add($event)">
+        <ion-list>
 
-          <ion-grid>
-            <ion-row>
-              <ion-col col-6>First Name:  {{user.fName}}</ion-col>
-              <ion-col col-6>Last Name:  {{user.lName}}</ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col col-6>Email: {{user.email}} </ion-col>
-            </ion-row>
-             <ion-row>
-              <ion-col col-6>Phone: {{user.contact}} </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col col-6>This column will take 6 columns</ion-col>
-  </ion-row>
-</ion-grid>
+          <ion-item>
+            <ion-label floating>Title</ion-label>
+            <ion-input type="text" formControlName="title"></ion-input>
+          </ion-item>
+           <ion-item>
+            <ion-label floating>Message</ion-label>
+            <ion-input type="text" formControlName="message"></ion-input>
+          </ion-item>
+          <ion-item>
+            <button ion-button full icon-right  type="submit">Add <ion-icon name="add-circle"></ion-icon></button>
+          </ion-item>
+
+        </ion-list>
+      </form>
+    </ion-card-content>
+  
+  </ion-card>
+
+<ion-card>
+  
+    <ion-card-header>
+      My todos
+    </ion-card-header>
+  
+    <ion-card-content>
+      <!-- Add card content here! -->
+      <ion-list>
+        <ion-item *ngFor="let todo of todos">
+
+            <ion-card>
+
+              <ion-item> 
+                <h2>{{todo.title}}</h2>
+                <p>{{todo.date}}</p>
+                <p>{{todo.time}}</p>
+              </ion-item>
+
+              <ion-card-content>
+                <p>{{todo.message}}</p>
+              </ion-card-content>
+
+              <ion-row>
+                <ion-col>
+                  <button ion-button icon-left clear small (click)="complet(todo)">
+                    <ion-icon name="completed"></ion-icon>
+                    <div>complete</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button ion-button icon-left clear small (click)="delete(todo)">
+                    <ion-icon name="delete"></ion-icon>
+                    <div>delete</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button ion-button icon-left clear small  (click)="edit(todo)">
+                    <ion-icon name="edit"></ion-icon>
+                    <div>edit</div>
+                  </button>
+                </ion-col>
+              </ion-row>
+
+            </ion-card>
+        </ion-item> 
+      </ion-list>
+    </ion-card-content>
+  
+  </ion-card>
+
 </ion-content>

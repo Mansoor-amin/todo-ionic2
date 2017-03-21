@@ -37,8 +37,9 @@ signup(user : {email: string, password: string}){
 
 
 logOut(){
-    this.af.auth.logout()
       localStorage.removeItem('uid');
+      console.log('logout')
+      return this.af.auth.logout();
 }
    createProfile(data : {
     fName: string,
